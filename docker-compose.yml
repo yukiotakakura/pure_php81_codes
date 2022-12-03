@@ -1,0 +1,13 @@
+version: "3" #決まり文句
+services:
+  php:
+    build: ./php #ビルドしたいフォルダを指定。このファイルから「php」フォルダを相対パスで指定
+    container_name: "pure_php81_codes" #container名は明示的に指定した方が良い
+    volumes:
+      #「ホスト:コンテナ」形式。
+      - ./src:/var/www/html
+      #自分で用意したApacheの設定を適用する（マウント）。人によって変わってくる部分はここに記載することで設定ファイルをいじるだけで良くなる
+      - ./php/vhost.conf:/etc/apache2/conf-enabled/vhost.conf
+    #Webサーバーのポート番号を指定
+    ports:
+      - "8080:80"

@@ -1,0 +1,14 @@
+■XDebugの起動
+cd /Users/yukio/Documents/codes/php/pure_php81_codes
+
+docker-compose up -d
+
+docker exec -it pure_php81_codes bash
+
+VSCode上からXDebugを起動する
+
+ブレイクポイントを設定する
+
+cd babanuki/
+
+php Main.php
