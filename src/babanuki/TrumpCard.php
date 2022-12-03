@@ -1,6 +1,6 @@
 <?php
 
-namespace TrumpCard;
+namespace Babanuki;
 
 /**
  * トランプカード単体クラス
@@ -20,7 +20,7 @@ class TrumpCard
     private string $pip_num;
 
     /** 強さを示すランク */
-    private string $rank;
+    private int $rank;
 
     /**
      * マークを取得する

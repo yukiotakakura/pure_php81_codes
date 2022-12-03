@@ -1,6 +1,6 @@
 <?php
 
-namespace DiscardTable;
+namespace Babanuki;
 
 /**
  * 捨て札を捨てるテーブルクラス
