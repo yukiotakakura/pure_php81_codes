@@ -1,11 +1,11 @@
 <?php
 
-namespace Babanuki;
+namespace Babanuki\PlayerObj;
 
 require_once('AbstractPlayer.php');
 
 /**
- * コンピュータプレイヤークラス
+ * コンピュータが操作するプレイヤークラス
  */
 class ComputerPlayer extends AbstractPlayer
 {

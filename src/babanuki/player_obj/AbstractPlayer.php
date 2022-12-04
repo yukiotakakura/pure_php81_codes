@@ -1,6 +1,6 @@
 <?php
 
-namespace Babanuki;
+namespace Babanuki\PlayerObj;
 
 /**
  * プレイヤー共通クラス
