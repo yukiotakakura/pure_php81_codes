@@ -1,11 +1,13 @@
 <?php
 
-namespace Babanuki;
+namespace Babanuki\CardObj;
+
+require_once('AbstractTrumpCard.php');
 
 /**
- * トランプカード単体クラス
+ * 通常カードクラス
  */
-class TrumpCard
+class NormalCard extends AbstractTrumpCard
 {
     /**
      * シンボルの種類
@@ -19,8 +21,15 @@ class TrumpCard
      */
     private string $pip_num;
 
-    /** 強さを示すランク */
-    private int $rank;
+    /**
+     * マークをセットする
+     *
+     * @param string マーク
+     */
+    public function setSuit(string $suit): void
+    {
+        $this->suit = $suit;
+    }
 
     /**
      * マークを取得する
@@ -30,6 +39,16 @@ class TrumpCard
     public function getSuit(): string
     {
         return $this->suit;
+    }
+
+    /**
+     * 数札をセットする
+     *
+     * @param string 数札
+     */
+    public function setPipNum(string $pip_num): void
+    {
+        $this->pip_num = $pip_num;
     }
 
     /**
