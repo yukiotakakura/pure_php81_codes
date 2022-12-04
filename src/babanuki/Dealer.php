@@ -4,13 +4,12 @@ namespace Babanuki;
 
 use Babanuki\CardObj\JokerCard;
 use Babanuki\CardObj\NormalCard;
-use Babanuki\PlayerObj\HumanPlayer;
 
 require_once(__DIR__ . '/card_obj/NormalCard.php');
 require_once(__DIR__ . '/card_obj/JokerCard.php');
 
 /**
- * 捨て札を捨てるテーブルクラス
+ * ディーラークラス
  */
 class Dealer
 {
@@ -29,20 +28,18 @@ class Dealer
 
     /**
      * コンストラクタ
-     * デッキ(53枚)を生成、各参加者にくばる
+     * デッキ(53枚)を生成、ゲーム参加者にくばる
      */
-    public function __construct(HumanPlayer $human_player, array $computer_players)
+    public function __construct(array $all_players)
     {
         $this->createBabanukiDeck();
-
-        $all_players = array_merge(array($human_player), $computer_players);
         $this->dealCards($all_players);
     }
 
     /**
      * デッキ(53枚)を生成する
      */
-    private function createBabanukiDeck()
+    private function createBabanukiDeck(): void
     {
         foreach (self::SUIT_LIST as $suit) {
             foreach (self::PIP_NUM_LIST as $pip_num) {
@@ -62,7 +59,7 @@ class Dealer
     /**
      * デッキ(53枚)を各参加者に配布する
      */
-    private function dealCards(array $all_players)
+    private function dealCards(array $all_players): void
     {
         $target_plyer_index = 0;
         foreach ($this->babanuki_deck as $trump_card) {
@@ -72,7 +69,6 @@ class Dealer
             $all_players[$target_plyer_index]->addHandDeck($trump_card);
             $target_plyer_index++;
         }
-        // TODO デッキを削除する処理
-
+        unset($this->babanuki_deck);
     }
 }

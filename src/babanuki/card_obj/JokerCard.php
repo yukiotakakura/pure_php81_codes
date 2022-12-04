@@ -5,7 +5,7 @@ namespace Babanuki\CardObj;
 require_once('AbstractTrumpCard.php');
 
 /**
- * ジョーカ-クラス
+ * ジョーカ-カードクラス
  */
 class JokerCard extends AbstractTrumpCard
 {
